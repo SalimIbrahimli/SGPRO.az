@@ -22,7 +22,13 @@ const translations = {
     error_message: "Please enter your message",
     success_message: "✓ Thank you! Your message has been sent successfully.",
     footer_copy: "Copyright 2025© SGPRO. All Rights Reserved.",
+
+    // ABOUT PAGE
+    about_title: "About Us",
+    about_subtitle: "What's behind The Agency?",
+    read_about_btn: "Read About Us",
   },
+
   az: {
     nav_home: "Ana səhifə",
     nav_contact: "Əlaqə",
@@ -46,7 +52,13 @@ const translations = {
     error_message: "Zəhmət olmasa mesajınızı daxil edin",
     success_message: "✓ Təşəkkür edirik! Mesajınız uğurla göndərildi.",
     footer_copy: "Copyright 2025© SGPRO. Bütün hüquqlar qorunur.",
+
+    // ABOUT PAGE
+    about_title: "Haqqımızda",
+    about_subtitle: "Agentliyin arxasında nə var?",
+    read_about_btn: "Daha ətraflı oxu",
   },
+
   ru: {
     nav_home: "Главная",
     nav_contact: "Контакты",
@@ -57,8 +69,7 @@ const translations = {
     footer_contact: "Контакты",
     mission_text:
       "Наша миссия — помочь даже самым ленивым людям спроектировать, создать и запустить свои стартапы с минимальными усилиями.",
-    contact_intro:
-      "Мы будем рады вам помочь. Отправьте нам сообщение!",
+    contact_intro: "Мы будем рады вам помочь. Отправьте нам сообщение!",
     form_name_label: "Полное имя *",
     form_email_label: "Адрес электронной почты *",
     form_subject_label: "Тема *",
@@ -68,9 +79,13 @@ const translations = {
     error_email: "Пожалуйста, введите корректный email",
     error_subject: "Пожалуйста, введите тему",
     error_message: "Пожалуйста, введите сообщение",
-    success_message:
-      "✓ Спасибо! Ваше сообщение было успешно отправлено.",
+    success_message: "✓ Спасибо! Ваше сообщение было успешно отправлено.",
     footer_copy: "Copyright 2025© SGPRO. Все права защищены.",
+
+    // ABOUT PAGE
+    about_title: "О нас",
+    about_subtitle: "Что стоит за агентством?",
+    read_about_btn: "Подробнее о нас",
   },
 };
 
@@ -91,17 +106,24 @@ function setLanguage(lang) {
     const key = el.getAttribute("data-i18n");
     const fromLang = translations[langToUse] || translations[fallbackLang];
     const fromFallback = translations[fallbackLang];
-    const text = (fromLang && fromLang[key]) || (fromFallback && fromFallback[key]);
+    const text =
+      (fromLang && fromLang[key]) || (fromFallback && fromFallback[key]);
     if (text) {
       el.textContent = text;
     }
   });
 
-  // Update active state on buttons
-  const buttons = document.querySelectorAll(".language-switcher button");
+  // Dropdown-dakı dilləri aktiv elə
+  const buttons = document.querySelectorAll(".lang-option");
   buttons.forEach((btn) => {
     btn.classList.toggle("active", btn.getAttribute("data-lang") === langToUse);
   });
+
+  // Əsas düymədə dili göstər
+  const label = document.getElementById("currentLangLabel");
+  if (label) {
+    label.textContent = langToUse.toUpperCase();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -117,11 +139,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setLanguage(initialLang);
 
-  const buttons = document.querySelectorAll(".language-switcher button");
+  const buttons = document.querySelectorAll(".lang-option");
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const lang = btn.getAttribute("data-lang");
       setLanguage(lang);
+
+      // seçəndən sonra menyunu bağla
+      const dropdown = document.getElementById("langDropdown");
+      const toggle = document.getElementById("langToggle");
+      if (dropdown && toggle) {
+        dropdown.classList.remove("show");
+        toggle.classList.remove("open");
+      }
     });
   });
+
+  const toggle = document.getElementById("langToggle");
+  const dropdown = document.getElementById("langDropdown");
+
+  if (toggle && dropdown) {
+    // aç / bağla
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("show");
+      toggle.classList.toggle("open");
+    });
+
+    // çöldə kliklə bağla
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
+        dropdown.classList.remove("show");
+        toggle.classList.remove("open");
+      }
+    });
+  }
 });
