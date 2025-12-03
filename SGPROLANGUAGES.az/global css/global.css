@@ -1,8 +1,25 @@
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--mainbgcolor) !important;
-  color: #ffffff;
-  overflow-x: hidden;
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 28, 46, 0.9);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -38,7 +55,17 @@ body {
 }
 
 .btn-login {
-  background-color: #0a3263;
+  background: radial-gradient(
+      circle at 0% 0%,
+      rgba(59, 130, 246, 0.35) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(56, 189, 248, 0.25) 0%,
+      transparent 40%
+    ),
+    linear-gradient(180deg, #050816 0%, #04152e 40%, #012769 100%);
   color: white;
   padding: 10px 28px;
   border-radius: 8px;
@@ -51,42 +78,7 @@ body {
   background: #2563eb;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  background: rgba(15, 28, 46, 0.9);
-  backdrop-filter: blur(10px);
-}
-
-.nav-links a {
-  position: relative;
-  padding-bottom: 4px;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(90deg, #0ab8ff, #00ffd0, #8855ff);
-  border-radius: 999px;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
+} 
 
 .feature-card,
 .destination-card,
@@ -111,21 +103,9 @@ nav {
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
   transform: translateY(-6px) scale(1.01);
 }
-
-.feature-icon,
-.destination-icon,
-.tip-icon,
-.chat-button,
-.compass-button,
-.direction-btn,
 .social-link {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
 }
-
-.feature-icon:hover,
-.destination-icon:hover,
-.tip-icon:hover,
-.direction-btn:hover,
 .social-link:hover {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
 }
@@ -166,6 +146,7 @@ nav {
   transition-delay: 0.3s;
 }
 
+/* Footer */
 footer {
   padding: 60px 60px 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -257,4 +238,59 @@ footer {
 .social-link:hover {
   background: rgba(59, 130, 246, 0.3);
   transform: translateY(-2px);
+}
+/* NAVBAR ALT XƏTT EFFEKTI */
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #0ab8ff, #00ffd0, #8855ff);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+.social-link {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+}
+.social-link:hover {
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+}
+
+/* SCROLL-LA GƏLƏN ANİMASİYA */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal.delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal.delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal.delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* FOOTER SOSIAL ICONLARI PARILDASIN */
+.social-link {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
 }
