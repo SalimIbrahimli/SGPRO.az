@@ -553,62 +553,7 @@
   transition: transform 0.25s ease-out;
 }
 
-/* ==== RESPONSIVE ==== */
-@media (max-width: 992px) {
-  .home-hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
 
-  .hero-card-main {
-    position: static;
-    margin-top: 20px;
-  }
-
-  .hero-floating {
-    display: none;
-  }
-
-  .home-services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .home-cta-actions {
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 768px) {
-  .home-main {
-    padding: 0 16px;
-    margin-top: 28px;
-  }
-
-  .home-hero {
-    padding: 28px 22px 32px;
-  }
-
-  .home-hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .home-services-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .home-portfolio-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
 /* ==== LAYOUT WRAPPER ==== */
 .home-main {
   max-width: 1200px;
@@ -1243,63 +1188,4 @@
 /* ==== PARALLAX LAYERS ==== */
 [data-parallax-layer] {
   transition: transform 0.25s ease-out;
-}
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 992px) {
-  .home-hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-card-main {
-    position: static;
-    margin-top: 20px;
-  }
-
-  .hero-floating {
-    display: none;
-  }
-
-  .home-services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .process-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .home-cta-actions {
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 768px) {
-  .home-main {
-    padding: 0 16px;
-    margin-top: 28px;
-  }
-
-  .home-hero {
-    padding: 28px 22px 32px;
-  }
-
-  .home-hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .home-services-grid,
-  .process-grid,
-  .home-portfolio-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }

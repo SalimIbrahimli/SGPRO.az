@@ -166,6 +166,13 @@ html {
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
+.mv-card:hover {
+  box-shadow: 0 10px 30px var(--mainbgcolor);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  border-radius: 5px solid var(--mainbgcolor);
+
+}
 
 .mv-card h3 {
   font-size: 2em;
@@ -328,22 +335,4 @@ html {
 .timeline-content p {
   color: #666;
   font-size: 1.1em;
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5em;
-  }
-  .story {
-    grid-template-columns: 1fr;
-  }
-  .mv-grid {
-    grid-template-columns: 1fr;
-  }
-  .timeline-item {
-    grid-template-columns: 1fr;
-  }
-  .timeline-year {
-    text-align: left;
-  }
 }
